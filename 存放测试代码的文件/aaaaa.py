@@ -6,6 +6,8 @@
 :time  2025/1/24 11:20
 :desc  
 """
+import asyncio
+
 import aiohttp
 from aiohttp import ClientSession
 
@@ -23,3 +25,5 @@ async def post(session, url):
 async def main():
     with aiohttp.ClientSession() as session:
         html = await fetch(session, "https://keane.github.io/keane-python/docs/")
+
+asyncio.run(main())
