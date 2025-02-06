@@ -9,7 +9,6 @@
 import os.path
 import requests
 
-
 # 数字、字符、表达式
 
 url = "https://jdyboss.zbj.com/api/DemandV3Service/getDemandHallListv3"
@@ -22,19 +21,25 @@ headers = {
 }
 data = {"pageNum": 1, "pageSize": 24, "source": 1, "sellerHallType": 4, "category1Id": [18216],
         "dispatchSearchType": [0]}
-res =requests.post(url,headers=headers,json=data)
+res = requests.post(url, headers=headers, json=data)
 print(res.text)
 
 if not os.path.exists("aaaa"):
     os.mkdir("aaaa")
 
-import cv2
+# import cv2
+#
+# img1 = cv2.imread("1df58719a.webp")
+# img2 = cv2.imread("d401d55fc.webp")
+# add = cv2.add(img1,img2)
+# cv2.imshow("image",add)
+# cv2.imshow("image2",img2)
+# cv2.imshow("iamge1",img1)
+# cv2.waitKey()
+# cv2.destroyAllWindows()
+import time
 
-img1 = cv2.imread("1df58719a.webp")
-img2 = cv2.imread("d401d55fc.webp")
-add = cv2.add(img1,img2)
-cv2.imshow("image",add)
-cv2.imshow("image2",img2)
-cv2.imshow("iamge1",img1)
-cv2.waitKey()
-cv2.destroyAllWindows()
+print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(1738830399)))
+print(time.mktime(time.strptime("20250206", "%Y%m%d")))
+b = time.strftime("%Y%m%d", time.localtime(time.mktime(time.strptime("20250206", "%Y%m%d")) - 1 * 24 * 60 * 60))
+print(b)
